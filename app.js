@@ -7,7 +7,7 @@
 // Global State
 let pillDatabase = [];
 let currentPillId = 'paracetamol';
-let currentPayloadMode = 'compact'; // 'compact', 'labeled', 'directUrl'
+let currentPayloadMode = 'directUrl'; // 'directUrl' (lowest matrix, instant auto camera redirect), 'rootUrl', 'compact', 'labeled'
 let currentLinkBase = 'github'; // 'github' or 'local'
 let currentErrorCorrection = 'L'; // 'L' (Low - lowest dot density for 5mm), 'M', 'H'
 let currentFace = 'top';
@@ -16,14 +16,18 @@ let html5QrScanner = null;
 
 const GITHUB_USER = 'peddireddytarun77-hue';
 const GITHUB_BASE_URL = `https://${GITHUB_USER}.github.io/pill-verify/verify.html`;
+const GITHUB_ROOT_URL = `https://${GITHUB_USER}.github.io/pill-verify/`;
 const LOCAL_BASE_URL = `${window.location.origin}/verify.html`;
+const LOCAL_ROOT_URL = `${window.location.origin}/`;
 
 // If user navigates to index.html?id=1, redirect to Web 2 (verify.html?id=1)
 (function checkDeepLink() {
-  const params = new URLSearchParams(window.location.search);
-  const qId = params.get('id') || params.get('pk') || params.get('p');
+  const search = window.location.search;
+  const hash = window.location.hash;
+  const params = new URLSearchParams(search);
+  const qId = params.get('id') || params.get('pk') || params.get('p') || (/^\?[0-9]+$/.test(search) ? search.replace('?', '') : '') || (/^#[0-9]+$/.test(hash) ? hash.replace('#', '') : '');
   if (qId) {
-    window.location.href = `verify.html?id=${encodeURIComponent(qId)}`;
+    window.location.replace(`verify.html?id=${encodeURIComponent(qId)}`);
   }
 })();
 
@@ -298,25 +302,33 @@ function getActivePill() {
 }
 
 // Generates the URL using the Primary Key (?id=1)
-function getVerificationUrl(pill) {
+function getVerificationUrl(pill, isRoot = false) {
+  if (isRoot) {
+    const base = currentLinkBase === 'github' ? GITHUB_ROOT_URL : LOCAL_ROOT_URL;
+    return `${base}?id=${pill.pk}`;
+  }
   const base = currentLinkBase === 'github' ? GITHUB_BASE_URL : LOCAL_BASE_URL;
   return `${base}?id=${pill.pk}`;
 }
 
-// Builds the compact payload as requested
+// Builds the payload
 function buildPayload(pill) {
-  const verifyUrl = getVerificationUrl(pill);
+  const verifyUrl = getVerificationUrl(pill, false);
+  const rootUrl = getVerificationUrl(pill, true);
 
-  if (currentPayloadMode === 'compact') {
-    // COMPACT FORMAT (Fewest characters, highest scannability at 5mm)
+  if (currentPayloadMode === 'directUrl') {
+    // PURE HTTPS DIRECT URL: Fewest dots (33x33 matrix), instant camera detection & 1-tap browser redirect
+    return verifyUrl;
+  } else if (currentPayloadMode === 'rootUrl') {
+    // ROOT SHORT URL: Clean short link (33x33 matrix, auto-routes to verify.html)
+    return rootUrl;
+  } else if (currentPayloadMode === 'compact') {
+    // Multi-line text combo (High 41x41 matrix, treated as notes/plain text by cameras)
     return `${pill.name}\nMFG: ${pill.mfgDate}\nEXP: ${pill.expDate}\n${verifyUrl}`;
   } else if (currentPayloadMode === 'labeled') {
-    // LABELED SHORT FORMAT
     return `PILL: ${pill.name} ${pill.dosage}\nMFG: ${pill.mfgDate}\nEXP: ${pill.expDate}\nLINK: ${verifyUrl}`;
-  } else {
-    // DIRECT URL ONLY (Fewest dots possible, 21x21 matrix)
-    return verifyUrl;
   }
+  return verifyUrl;
 }
 
 function regenerateQR() {
@@ -324,12 +336,35 @@ function regenerateQR() {
   if (!pill) return;
 
   const payload = buildPayload(pill);
-  const verifyUrl = getVerificationUrl(pill);
+  const verifyUrl = getVerificationUrl(pill, currentPayloadMode === 'rootUrl');
 
   // Update Primary Key badge
   const pkBadge = document.getElementById('currentPkBadge');
   if (pkBadge) {
     pkBadge.textContent = `Primary Key: #${pill.pk}`;
+  }
+
+  // Update matrix density badge & camera redirect notice
+  const matrixBadge = document.getElementById('matrixGridBadge');
+  const redirectNotice = document.getElementById('scanRedirectNotice');
+  if (currentPayloadMode === 'directUrl' || currentPayloadMode === 'rootUrl') {
+    if (matrixBadge) {
+      matrixBadge.textContent = '33×33 Matrix (~0.15mm)';
+      matrixBadge.style.color = '#10b981';
+    }
+    if (redirectNotice) {
+      redirectNotice.textContent = '⚡ Direct HTTP: Camera detects web link & redirects automatically';
+      redirectNotice.style.color = '#38bdf8';
+    }
+  } else {
+    if (matrixBadge) {
+      matrixBadge.textContent = '41×41 Matrix (⚠️ 0.12mm Dense)';
+      matrixBadge.style.color = '#f59e0b';
+    }
+    if (redirectNotice) {
+      redirectNotice.textContent = '⚠️ Plain Text Mode: Camera shows notes, does NOT auto-redirect';
+      redirectNotice.style.color = '#f59e0b';
+    }
   }
 
   // Update Payload Display

@@ -144,9 +144,24 @@ function findPillByQuery(query) {
 }
 
 function initVerificationPage() {
-  const params = new URLSearchParams(window.location.search);
-  // Supports ?id=1 or ?pk=1 or ?p=1 or ?id=paracetamol
-  const query = params.get('id') || params.get('pk') || params.get('p') || '1';
+  const s = window.location.search;
+  const h = window.location.hash;
+  const params = new URLSearchParams(s);
+  // Supports ?id=1, ?pk=1, ?p=1, ?id=paracetamol, or raw ?1, #1
+  let query = params.get('id') || params.get('pk') || params.get('p');
+  if (!query) {
+    const rawSearch = s.replace(/^\?/, '').trim();
+    const rawHash = h.replace(/^#/, '').trim();
+    if (/^\d+$/.test(rawSearch)) {
+      query = rawSearch;
+    } else if (/^\d+$/.test(rawHash)) {
+      query = rawHash;
+    } else if (rawSearch) {
+      query = rawSearch;
+    } else {
+      query = '1';
+    }
+  }
 
   const pill = findPillByQuery(query);
   renderPillVerification(pill);

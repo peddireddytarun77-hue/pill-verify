@@ -12,6 +12,25 @@
   
   <script src="qrcode.min.js"></script>
   <script src="html5-qrcode.min.js"></script>
+  
+  <script>
+    // Instant client-side router: if a consumer scans root with ?id=1, ?p=1, or ?1, immediately redirect to verify.html
+    (function() {
+      var s = window.location.search;
+      var h = window.location.hash;
+      var p = new URLSearchParams(s);
+      var q = p.get('id') || p.get('pk') || p.get('p');
+      if (!q) {
+        var rawSearch = s.replace(/^\?/, '').trim();
+        var rawHash = h.replace(/^#/, '').trim();
+        if (/^\d+$/.test(rawSearch)) q = rawSearch;
+        else if (/^\d+$/.test(rawHash)) q = rawHash;
+      }
+      if (q) {
+        window.location.replace('verify.html?id=' + encodeURIComponent(q));
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -184,15 +203,15 @@
             <!-- Magnified Micro-Dot Inspection View -->
             <div class="preview-box">
               <div class="preview-box-label">
-                <span>Micro-Dot Inspection (160×160 px)</span>
-                <span style="color: #10b981; font-family: var(--font-mono);">Low Density Grid</span>
+                <span>Micro-Dot Inspection</span>
+                <span id="matrixGridBadge" style="color: #10b981; font-family: var(--font-mono); font-weight: 700;">33×33 Matrix (~0.15mm)</span>
               </div>
               <div class="magnified-qr-wrapper">
                 <div id="magnifiedQrTarget">
                   <!-- Injected by app.js -->
                 </div>
               </div>
-              <div class="caliper-guide">Few dots = Maximum scan reliability at 5mm</div>
+              <div class="caliper-guide" id="scanRedirectNotice" style="color: #38bdf8;">⚡ Camera auto-redirects directly to HTTP verification page</div>
             </div>
 
           </div>
@@ -263,11 +282,12 @@
         <!-- Density and Mode Controls -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1rem;">
           <div>
-            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Payload Density</label>
+            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Payload Density & Matrix</label>
             <select id="payloadModeSelect" style="width: 100%; padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
-              <option value="compact" selected>Compact 5mm (Name + Mfg + Exp + Link)</option>
-              <option value="labeled">Short Labeled (PILL / MFG / EXP / LINK)</option>
-              <option value="directUrl">Direct Primary Key URL (Ultra-Micro)</option>
+              <option value="directUrl" selected>⚡ Direct URL (Lowest Matrix 33×33 • Instant Camera Redirect)</option>
+              <option value="rootUrl">🌐 Root Short URL (peddireddytarun77-hue.github.io/pill-verify/?id=1)</option>
+              <option value="compact">⚠️ Multi-Line Text (Name + Dates + Link • High Matrix 41×41)</option>
+              <option value="labeled">⚠️ Labeled Text (PILL / MFG / EXP / LINK • High Matrix 45×45)</option>
             </select>
           </div>
           <div>
