@@ -1,0 +1,22 @@
+{
+  "name": "pill-verification-system",
+  "version": "1.0.0",
+  "description": "On-Dose 5x5mm Pill QR Authentication & Database System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "qr-code",
+    "pharma",
+    "pill-verification",
+    "micro-qr",
+    "on-dose-authentication"
+  ],
+  "author": "peddireddytarun77-hue",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

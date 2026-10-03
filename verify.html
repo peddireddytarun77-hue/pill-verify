@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pill Verification Certificate | PharmaVerify On-Dose Security</title>
+  <meta name="description" content="Consumer authentication verification portal for on-dose micro-QR coded pharmaceutical tablets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="brand" id="brandHomeLink">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/>
+            <path d="m8.5 8.5 7 7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">PharmaVerify</div>
+          <div class="brand-subtitle">Consumer Safety Portal</div>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <div class="badge-live">
+          <span class="pulse-dot"></span>
+          Database Online
+        </div>
+        <a href="https://github.com/peddireddytarun77-hue" target="_blank" class="badge-github" id="githubProfileLink">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          peddireddytarun77-hue
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Consumer Verification Container -->
+  <main class="verify-container">
+    <div class="certificate-card">
+      <div class="cert-header">
+        <div class="cert-seal">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <h1 class="cert-title">Verified Authentic Medication</h1>
+        <div class="cert-subtitle" id="expiryStatusBadge">
+          <span class="pulse-dot"></span> Valid & Active Dose (Database Verified)
+        </div>
+      </div>
+
+      <!-- Pill Quick Banner -->
+      <div class="cert-pill-banner">
+        <div class="cert-pill-canvas">
+          <canvas id="miniPillCanvas" width="80" height="80"></canvas>
+        </div>
+        <div>
+          <h2 id="pillName" style="font-size: 1.6rem; font-weight: 800; color: #fff;">Paracetamol</h2>
+          <div style="display: flex; gap: 8px; align-items: center; margin: 4px 0;">
+            <span id="pillDosage" style="font-weight: 700; color: var(--accent-cyan); font-size: 1.1rem;">500 mg</span>
+            <span style="color: var(--text-muted);">•</span>
+            <span id="pillGeneric" style="color: var(--text-secondary); font-style: italic;">Acetaminophen</span>
+          </div>
+          <div id="pillCategory" style="font-size: 0.8rem; color: var(--text-muted);">Analgesic & Antipyretic</div>
+        </div>
+      </div>
+
+      <!-- Medical Indication Callout -->
+      <div style="background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 2rem;">
+        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-cyan); font-weight: 700; margin-bottom: 4px;">Prescribed Indication / Therapeutic Use</div>
+        <div id="pillIndication" style="font-size: 1.05rem; font-weight: 600; color: #f8fafc;">Treats fever and mild pain.</div>
+      </div>
+
+      <!-- Detailed Certification Attributes -->
+      <div class="cert-info-list">
+        <div class="cert-row">
+          <span class="cert-label">Manufacture Date:</span>
+          <span class="cert-value" id="mfgDate" style="color: #38bdf8;">2026-02-15</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">Expiration Date:</span>
+          <span class="cert-value" id="expDate" style="color: #10b981;">2028-02-15</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">Lot / Batch Number:</span>
+          <span class="cert-value" id="batchNumber" style="font-family: var(--font-mono);">LOT-PRX-2026-081</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">Unit Serial ID:</span>
+          <span class="cert-value" id="serialNumber" style="font-family: var(--font-mono);">SN-PARA-9842103</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">Licensed Manufacturer:</span>
+          <span class="cert-value" id="manufacturer">BioPharma Core Ltd.</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">FDA / CDSCO License:</span>
+          <span class="cert-value" id="mfgLicense">MFG-FDA-IND-88210</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">Pill Physical Form:</span>
+          <span class="cert-value" id="pillForm">Oblong Caplet Tablet</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">Physical Dimensions:</span>
+          <span class="cert-value" id="pillDimensions">16.5 mm × 7.2 mm</span>
+        </div>
+        <div class="cert-row">
+          <span class="cert-label">On-Dose QR Stamp:</span>
+          <span class="cert-value" id="qrPlacement">Top Face Center (5mm × 5mm)</span>
+        </div>
+      </div>
+
+      <!-- Dosage & Administration Instructions -->
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.75rem;">
+        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">Dosage & Administration</div>
+        <p id="dosageInstructions" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">1 tablet every 4 to 6 hours as needed.</p>
+      </div>
+
+      <!-- Safety Warnings Box -->
+      <div class="safety-warning-box">
+        <div class="safety-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          Important Safety Warnings
+        </div>
+        <ul id="warningsList">
+          <li>Do not consume with other acetaminophen-containing medications.</li>
+          <li>Avoid alcoholic beverages during treatment.</li>
+        </ul>
+      </div>
+
+      <!-- Storage Instructions -->
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 2rem; padding: 0 4px;">
+        <span><strong>Storage:</strong> <span id="storageInstructions">Store below 25°C</span></span>
+        <span style="color: var(--accent-emerald);">● Tamper-Evident Digital Seal Verified</span>
+      </div>
+
+      <!-- Return or Switch Pill -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <a href="index.html" class="btn btn-secondary" id="btnReturnLab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Back to Pill Studio
+        </a>
+        <div style="display: flex; gap: 8px;">
+          <a href="verify.html?id=paracetamol" class="btn btn-secondary" style="flex: 1; padding: 8px 4px; font-size: 0.78rem;">Paracetamol</a>
+          <a href="verify.html?id=ibuprofen" class="btn btn-secondary" style="flex: 1; padding: 8px 4px; font-size: 0.78rem;">Ibuprofen</a>
+          <a href="verify.html?id=amoxicillin" class="btn btn-secondary" style="flex: 1; padding: 8px 4px; font-size: 0.78rem;">Amoxicillin</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="verify.js"></script>
+</body>
+</html>

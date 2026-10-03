@@ -1,0 +1,106 @@
+{
+  "project": "PharmaVerify On-Dose 5x5mm Pill Authentication Database",
+  "version": "1.0.0",
+  "githubOwner": "peddireddytarun77-hue",
+  "baseVerificationUrl": "https://peddireddytarun77-hue.github.io/pill-verify/verify.html",
+  "localVerificationUrl": "http://localhost:3000/verify.html",
+  "pills": [
+    {
+      "id": "paracetamol",
+      "code": "PARA-500",
+      "name": "Paracetamol",
+      "genericName": "Acetaminophen",
+      "dosage": "500 mg",
+      "indication": "Treats fever and mild pain.",
+      "category": "Analgesic & Antipyretic",
+      "mfgDate": "2026-02-15",
+      "expDate": "2028-02-15",
+      "batchNumber": "LOT-PRX-2026-081",
+      "serialNumber": "SN-PARA-9842103",
+      "manufacturer": "BioPharma Core Ltd.",
+      "mfgLicense": "MFG-FDA-IND-88210",
+      "authenticityStatus": "VERIFIED_GENUINE",
+      "pillPhysicalSpecs": {
+        "form": "Oblong Caplet Tablet",
+        "color": "#F8FAFC",
+        "textColor": "#334155",
+        "dimensions": "16.5 mm × 7.2 mm",
+        "scoreLine": true,
+        "qrPrintPlacement": "Top Face Center",
+        "qrTargetSize": "5 mm × 5 mm"
+      },
+      "dosageInstructions": "1 tablet every 4 to 6 hours as needed. Maximum 4,000 mg (8 tablets) in 24 hours.",
+      "safetyWarnings": [
+        "Do not consume with other acetaminophen-containing medications.",
+        "Avoid alcoholic beverages during treatment.",
+        "Overdose can cause serious liver damage. Seek immediate medical attention if excessive dose taken."
+      ],
+      "storage": "Store below 25°C (77°F) in a dry place protected from moisture."
+    },
+    {
+      "id": "ibuprofen",
+      "code": "IBU-400",
+      "name": "Ibuprofen",
+      "genericName": "Isobutylphenylpropionic Acid",
+      "dosage": "400 mg",
+      "indication": "Reduces pain, swelling, and fever.",
+      "category": "Non-Steroidal Anti-Inflammatory Drug (NSAID)",
+      "mfgDate": "2026-01-10",
+      "expDate": "2028-01-10",
+      "batchNumber": "LOT-IBU-2026-442",
+      "serialNumber": "SN-IBU-7740192",
+      "manufacturer": "CareHealth Therapeutics",
+      "mfgLicense": "MFG-FDA-IND-54192",
+      "authenticityStatus": "VERIFIED_GENUINE",
+      "pillPhysicalSpecs": {
+        "form": "Round Coated Tablet",
+        "color": "#D9534F",
+        "textColor": "#FFFFFF",
+        "dimensions": "10.0 mm Diameter",
+        "scoreLine": false,
+        "qrPrintPlacement": "Convex Center Face",
+        "qrTargetSize": "5 mm × 5 mm"
+      },
+      "dosageInstructions": "1 tablet every 6 to 8 hours with food or milk. Maximum 1,200 mg daily without physician consultation.",
+      "safetyWarnings": [
+        "Take with food or a glass of milk to prevent gastrointestinal upset.",
+        "Contraindicated in active stomach ulcers or severe kidney impairment.",
+        "Do not use during the third trimester of pregnancy."
+      ],
+      "storage": "Store between 20°C and 25°C (68°F to 77°F). Excursions permitted between 15°C and 30°C."
+    },
+    {
+      "id": "amoxicillin",
+      "code": "AMX-500",
+      "name": "Amoxicillin",
+      "genericName": "Amoxicillin Trihydrate",
+      "dosage": "500 mg",
+      "indication": "Treats bacterial infections like chest or ear infections.",
+      "category": "Broad-Spectrum Penicillin Antibiotic",
+      "mfgDate": "2026-03-01",
+      "expDate": "2027-09-01",
+      "batchNumber": "LOT-AMX-2026-919",
+      "serialNumber": "SN-AMX-3301984",
+      "manufacturer": "Apex LifeSciences",
+      "mfgLicense": "MFG-FDA-IND-31048",
+      "authenticityStatus": "VERIFIED_GENUINE",
+      "pillPhysicalSpecs": {
+        "form": "Two-Tone Hard Gelatin Capsule",
+        "color": "#800020",
+        "secondaryColor": "#E5A93C",
+        "textColor": "#FFFFFF",
+        "dimensions": "19.4 mm × 6.8 mm",
+        "scoreLine": false,
+        "qrPrintPlacement": "Cap Section Cylindrical Band",
+        "qrTargetSize": "5 mm × 5 mm"
+      },
+      "dosageInstructions": "1 capsule every 8 hours (or 12 hours as prescribed) for full 7 to 10 day course.",
+      "safetyWarnings": [
+        "DO NOT TAKE if you have a known allergy to penicillin or cephalosporins.",
+        "Complete the ENTIRE prescribed course even if symptoms disappear to prevent bacterial resistance.",
+        "Contact your doctor immediately if a skin rash or breathing difficulty occurs."
+      ],
+      "storage": "Store below 25°C (77°F). Keep container tightly closed away from moisture."
+    }
+  ]
+}
