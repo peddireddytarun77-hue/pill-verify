@@ -311,24 +311,13 @@ function getVerificationUrl(pill, isRoot = false) {
   return `${base}?id=${pill.pk}`;
 }
 
-// Builds the payload
+// Builds the payload - GUARANTEED PURE HTTPS URL ONLY
 function buildPayload(pill) {
-  const verifyUrl = getVerificationUrl(pill, false);
-  const rootUrl = getVerificationUrl(pill, true);
-
-  if (currentPayloadMode === 'directUrl') {
-    // PURE HTTPS DIRECT URL: Fewest dots (33x33 matrix), instant camera detection & 1-tap browser redirect
-    return verifyUrl;
-  } else if (currentPayloadMode === 'rootUrl') {
-    // ROOT SHORT URL: Clean short link (33x33 matrix, auto-routes to verify.html)
-    return rootUrl;
-  } else if (currentPayloadMode === 'compact') {
-    // Multi-line text combo (High 41x41 matrix, treated as notes/plain text by cameras)
-    return `${pill.name}\nMFG: ${pill.mfgDate}\nEXP: ${pill.expDate}\n${verifyUrl}`;
-  } else if (currentPayloadMode === 'labeled') {
-    return `PILL: ${pill.name} ${pill.dosage}\nMFG: ${pill.mfgDate}\nEXP: ${pill.expDate}\nLINK: ${verifyUrl}`;
+  if (currentPayloadMode === 'rootUrl') {
+    return getVerificationUrl(pill, true);
   }
-  return verifyUrl;
+  // Standard Direct HTTPS Link (Lowest Matrix 33x33 • Instant Camera Redirection)
+  return getVerificationUrl(pill, false);
 }
 
 function regenerateQR() {
@@ -347,24 +336,20 @@ function regenerateQR() {
   // Update matrix density badge & camera redirect notice
   const matrixBadge = document.getElementById('matrixGridBadge');
   const redirectNotice = document.getElementById('scanRedirectNotice');
-  if (currentPayloadMode === 'directUrl' || currentPayloadMode === 'rootUrl') {
-    if (matrixBadge) {
-      matrixBadge.textContent = '33×33 Matrix (~0.15mm)';
-      matrixBadge.style.color = '#10b981';
-    }
-    if (redirectNotice) {
-      redirectNotice.textContent = '⚡ Direct HTTP: Camera detects web link & redirects automatically';
-      redirectNotice.style.color = '#38bdf8';
-    }
-  } else {
-    if (matrixBadge) {
-      matrixBadge.textContent = '41×41 Matrix (⚠️ 0.12mm Dense)';
-      matrixBadge.style.color = '#f59e0b';
-    }
-    if (redirectNotice) {
-      redirectNotice.textContent = '⚠️ Plain Text Mode: Camera shows notes, does NOT auto-redirect';
-      redirectNotice.style.color = '#f59e0b';
-    }
+  if (matrixBadge) {
+    matrixBadge.textContent = '33×33 Matrix (~0.15mm)';
+    matrixBadge.style.color = '#10b981';
+  }
+  if (redirectNotice) {
+    redirectNotice.textContent = '⚡ Direct HTTP: Camera detects web link & redirects automatically';
+    redirectNotice.style.color = '#38bdf8';
+  }
+
+  // Update direct test link button
+  const testBtn = document.getElementById('testScannedLinkBtn');
+  if (testBtn) {
+    testBtn.href = verifyUrl;
+    testBtn.textContent = `🔗 Click to Test & Open URL: #${pill.pk} (${pill.name}) ↗`;
   }
 
   // Update Payload Display

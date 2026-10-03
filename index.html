@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web 1: Data Admin & 5x5mm Pill QR Studio | PharmaVerify</title>
-  <meta name="description" content="Web 1: Pharmaceutical Database Management & On-Dose 5x5mm Micro-QR Studio with Primary Key Routing.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4.0">
   
   <script src="qrcode.min.js"></script>
   <script src="html5-qrcode.min.js"></script>
@@ -212,6 +214,9 @@
                 </div>
               </div>
               <div class="caliper-guide" id="scanRedirectNotice" style="color: #38bdf8;">⚡ Camera auto-redirects directly to HTTP verification page</div>
+              <a id="testScannedLinkBtn" href="https://peddireddytarun77-hue.github.io/pill-verify/verify.html?id=1" target="_blank" class="btn btn-secondary" style="margin-top: 10px; width: 100%; font-size: 0.8rem; padding: 7px 10px; text-align: center; border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                🔗 Test & Open Encoded URL in Browser ↗
+              </a>
             </div>
 
           </div>
@@ -282,12 +287,10 @@
         <!-- Density and Mode Controls -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1rem;">
           <div>
-            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Payload Density & Matrix</label>
+            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">QR URL Routing Target</label>
             <select id="payloadModeSelect" style="width: 100%; padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
-              <option value="directUrl" selected>⚡ Direct URL (Lowest Matrix 33×33 • Instant Camera Redirect)</option>
-              <option value="rootUrl">🌐 Root Short URL (peddireddytarun77-hue.github.io/pill-verify/?id=1)</option>
-              <option value="compact">⚠️ Multi-Line Text (Name + Dates + Link • High Matrix 41×41)</option>
-              <option value="labeled">⚠️ Labeled Text (PILL / MFG / EXP / LINK • High Matrix 45×45)</option>
+              <option value="directUrl" selected>⚡ Direct URL (verify.html?id=1 • Instant 1-Tap Browser Open)</option>
+              <option value="rootUrl">🌐 Root Short URL (?id=1 • Auto-Routes to verify.html)</option>
             </select>
           </div>
           <div>
@@ -561,12 +564,12 @@
       </div>
 
       <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-        The phone camera reads the compact text (Name, Mfg, Exp) and presents a direct link to the exact primary key record on Web 2.
+        The smartphone camera detects the pure HTTPS URL and immediately displays a one-tap pop-up to open the verified medication portal directly in the browser.
       </p>
     </div>
   </div>
 
-  <script src="pill-renderer.js"></script>
-  <script src="app.js"></script>
+  <script src="pill-renderer.js?v=4.0"></script>
+  <script src="app.js?v=4.0"></script>
 </body>
 </html>
