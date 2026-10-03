@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>On-Dose 5x5mm Pill QR Authentication & Database System</title>
-  <meta name="description" content="Generate 5x5mm micro-QR codes stamped directly on medication tablets with database verification.">
+  <title>Web 1: Data Admin & 5x5mm Pill QR Studio | PharmaVerify</title>
+  <meta name="description" content="Web 1: Pharmaceutical Database Management & On-Dose 5x5mm Micro-QR Studio with Primary Key Routing.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Standalone Local QR Code Generator & Scanner Libraries -->
   <script src="qrcode.min.js"></script>
   <script src="html5-qrcode.min.js"></script>
 </head>
@@ -28,15 +27,17 @@
         </div>
         <div>
           <div class="brand-title">PharmaVerify 5mm Studio</div>
-          <div class="brand-subtitle">On-Dose Authentication System</div>
+          <div class="brand-subtitle">Web 1 • Data Admin & Micro-QR Generator</div>
         </div>
       </a>
 
       <div class="header-actions">
-        <div class="badge-live">
-          <span class="pulse-dot"></span>
-          Database Connected
-        </div>
+        <span class="status-badge status-verified" id="currentPkBadge" style="font-family: var(--font-mono); font-size: 0.8rem;">
+          Primary Key: #1
+        </span>
+        <a href="verify.html?id=1" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.85rem;" target="_blank">
+          Open Web 2 (Consumer UI) ↗
+        </a>
         <a href="https://github.com/peddireddytarun77-hue" target="_blank" class="badge-github" id="headerGithubUser">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -53,28 +54,31 @@
     <!-- Hero Banner -->
     <section class="hero-section">
       <div class="hero-pill-badge">
-        <span>🔬 Direct-Tablet Edible Micro-Coding</span>
+        <span>🔬 Web 1: Data Admin Studio</span>
         <span>•</span>
-        <span>5 mm × 5 mm Form Factor</span>
+        <span>5 mm × 5 mm Compact Micro-Codes</span>
       </div>
-      <h1 class="hero-title">On-Dose Pill QR Authentication System</h1>
+      <h1 class="hero-title">On-Dose 5×5mm Micro-QR Generator</h1>
       <p class="hero-description">
-        Precision 5mm micro-QR generation and live verification for pharmaceutical doses. 
-        Each code encodes the <strong>Pill Name, Manufacture Date, Expiry Date</strong>, and redirects directly to the 
-        connected verification database.
+        Compact 5mm QR code generation with minimum dot density for medication tablets. 
+        Each code encodes <strong>Pill Name, Mfg Date, Exp Date</strong>, and uses a <strong>Primary Key (?id=1)</strong> 
+        to route directly to Web 2 (Consumer Verification UI).
       </p>
     </section>
 
-    <!-- 3 Pill Cards Selector Grid -->
+    <!-- 3 Pill Cards Selector Grid with Primary Keys -->
     <section class="pill-grid" id="pillSelectorGrid">
       
-      <!-- Pill 1: Paracetamol -->
+      <!-- Pill 1: Paracetamol (Primary Key #1) -->
       <div class="pill-card active" data-pill-id="paracetamol" id="cardParacetamol">
         <div class="pill-card-header">
           <div class="pill-icon-avatar" style="border-color: rgba(255,255,255,0.4);">
             <div style="width: 28px; height: 14px; background: #fff; border-radius: 7px; border: 1px solid #cbd5e1;"></div>
           </div>
-          <span class="pill-dosage-tag">500 mg</span>
+          <div style="text-align: right;">
+            <span class="status-badge status-verified" style="font-size: 0.7rem; margin-bottom: 4px;">PK #1</span>
+            <span class="pill-dosage-tag">500 mg</span>
+          </div>
         </div>
         <h2 class="pill-name">Paracetamol</h2>
         <div class="pill-generic">Acetaminophen</div>
@@ -88,13 +92,16 @@
         </div>
       </div>
 
-      <!-- Pill 2: Ibuprofen -->
+      <!-- Pill 2: Ibuprofen (Primary Key #2) -->
       <div class="pill-card" data-pill-id="ibuprofen" id="cardIbuprofen">
         <div class="pill-card-header">
           <div class="pill-icon-avatar" style="border-color: rgba(239,68,68,0.4);">
             <div style="width: 20px; height: 20px; background: #dc2626; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4);"></div>
           </div>
-          <span class="pill-dosage-tag">400 mg</span>
+          <div style="text-align: right;">
+            <span class="status-badge status-verified" style="font-size: 0.7rem; margin-bottom: 4px;">PK #2</span>
+            <span class="pill-dosage-tag">400 mg</span>
+          </div>
         </div>
         <h2 class="pill-name">Ibuprofen</h2>
         <div class="pill-generic">Isobutylphenylpropionic Acid</div>
@@ -108,7 +115,7 @@
         </div>
       </div>
 
-      <!-- Pill 3: Amoxicillin -->
+      <!-- Pill 3: Amoxicillin (Primary Key #3) -->
       <div class="pill-card" data-pill-id="amoxicillin" id="cardAmoxicillin">
         <div class="pill-card-header">
           <div class="pill-icon-avatar" style="border-color: rgba(234,179,8,0.4);">
@@ -117,7 +124,10 @@
               <div style="width: 50%; background: #eab308;"></div>
             </div>
           </div>
-          <span class="pill-dosage-tag">500 mg</span>
+          <div style="text-align: right;">
+            <span class="status-badge status-verified" style="font-size: 0.7rem; margin-bottom: 4px;">PK #3</span>
+            <span class="pill-dosage-tag">500 mg</span>
+          </div>
         </div>
         <h2 class="pill-name">Amoxicillin</h2>
         <div class="pill-generic">Amoxicillin Trihydrate</div>
@@ -144,9 +154,9 @@
               <rect width="18" height="18" x="3" y="3" rx="2"/>
               <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/>
             </svg>
-            5×5 mm Physical Scale & Pill Stamping Studio
+            5×5 mm Physical Scale & Tablet Stamping Visualizer
           </div>
-          <span class="panel-title-badge">Micro-Printing Calibrated</span>
+          <span class="panel-title-badge">Micro-Dose Calibrated</span>
         </div>
 
         <div class="scale-section">
@@ -161,7 +171,6 @@
                 <span style="color: var(--accent-cyan); font-family: var(--font-mono);">5.0 mm²</span>
               </div>
               <div class="actual-scale-wrapper">
-                <!-- Exact 5mm x 5mm CSS Box -->
                 <div class="micro-qr-container-5mm" id="microQrTarget" title="Actual 5mm x 5mm Physical Scale">
                   <!-- Injected by app.js -->
                 </div>
@@ -176,14 +185,14 @@
             <div class="preview-box">
               <div class="preview-box-label">
                 <span>Micro-Dot Inspection (160×160 px)</span>
-                <span style="color: #10b981; font-family: var(--font-mono);">High Contrast</span>
+                <span style="color: #10b981; font-family: var(--font-mono);">Low Density Grid</span>
               </div>
               <div class="magnified-qr-wrapper">
                 <div id="magnifiedQrTarget">
                   <!-- Injected by app.js -->
                 </div>
               </div>
-              <div class="caliper-guide">Optimized for edible ink & laser etching</div>
+              <div class="caliper-guide">Few dots = Maximum scan reliability at 5mm</div>
             </div>
 
           </div>
@@ -246,35 +255,45 @@
               <path d="M4 7V4h3M20 7V4h-3M4 17v3h3M20 17v3h-3"/>
               <path d="M9 12h6"/>
             </svg>
-            Encoded Payload & Scanning
+            Compact 5mm Payload & Scanner
           </div>
-          <span class="panel-title-badge">Live Sync</span>
+          <span class="panel-title-badge">Level L Optimized</span>
         </div>
 
-        <!-- Configuration Controls -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem;">
+        <!-- Density and Mode Controls -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1rem;">
           <div>
-            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Payload Format</label>
-            <select id="payloadModeSelect" style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
-              <option value="spec" selected>Spec (Pill + Mfg + Exp + Link)</option>
-              <option value="directUrl">Direct Browser URL Redirect</option>
-              <option value="compact">Compact Pharma JSON</option>
+            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Payload Density</label>
+            <select id="payloadModeSelect" style="width: 100%; padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
+              <option value="compact" selected>Compact 5mm (Name + Mfg + Exp + Link)</option>
+              <option value="labeled">Short Labeled (PILL / MFG / EXP / LINK)</option>
+              <option value="directUrl">Direct Primary Key URL (Ultra-Micro)</option>
             </select>
           </div>
           <div>
-            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Target URL Base</label>
-            <select id="linkBaseSelect" style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
-              <option value="github" selected>GitHub Pages (peddireddytarun77-hue)</option>
-              <option value="local">Localhost Server</option>
+            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Error Correction</label>
+            <select id="ecSelect" style="width: 100%; padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
+              <option value="L" selected>Level L (Fewest Dots • Best for 5mm)</option>
+              <option value="M">Level M (Balanced Standard)</option>
+              <option value="H">Level H (High Redundancy)</option>
             </select>
           </div>
+        </div>
+
+        <!-- Target Base URL Selector -->
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px;">Web 2 Destination URL</label>
+          <select id="linkBaseSelect" style="width: 100%; padding: 8px 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); color: #fff; font-size: 0.85rem;">
+            <option value="github" selected>GitHub Pages (peddireddytarun77-hue.github.io/pill-verify/verify.html?id=1)</option>
+            <option value="local">Localhost Server (http://localhost:3000/verify.html?id=1)</option>
+          </select>
         </div>
 
         <!-- Encoded Payload Viewer -->
         <div class="payload-viewer">
           <div class="payload-title">
-            <span>Encoded QR Payload Content:</span>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">UTF-8 Text</span>
+            <span>Encoded 5mm Payload:</span>
+            <span style="font-size: 0.75rem; color: #10b981;">Less Content • Sharp Scan</span>
           </div>
           <div class="payload-text-box" id="payloadDisplay">
             <!-- Injected by app.js -->
@@ -282,22 +301,26 @@
 
           <div class="payload-breakdown">
             <div class="breakdown-row">
-              <span class="breakdown-label">1. Pill Name:</span>
+              <span class="breakdown-label">Primary Key:</span>
+              <span class="breakdown-val" id="breakdownPk" style="color: var(--accent-cyan);">#1</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="breakdown-label">Pill Name:</span>
               <span class="breakdown-val" id="breakdownPill">Paracetamol (500 mg)</span>
             </div>
             <div class="breakdown-row">
-              <span class="breakdown-label">2. Manufacture Date:</span>
+              <span class="breakdown-label">Manufacture Date:</span>
               <span class="breakdown-val" id="breakdownMfg">2026-02-15</span>
             </div>
             <div class="breakdown-row">
-              <span class="breakdown-label">3. Expiry Date:</span>
+              <span class="breakdown-label">Expiry Date:</span>
               <span class="breakdown-val" id="breakdownExp">2028-02-15</span>
             </div>
             <div class="breakdown-row">
-              <span class="breakdown-label">4. Direct Database Link:</span>
+              <span class="breakdown-label">Direct Web 2 Link:</span>
               <span class="breakdown-val" style="color: var(--accent-cyan);">
-                <a href="verify.html?id=paracetamol" id="breakdownLink" target="_blank" style="color: inherit; text-decoration: underline;">
-                  Open Verification Portal
+                <a href="verify.html?id=1" id="breakdownLink" target="_blank" style="color: inherit; text-decoration: underline;">
+                  verify.html?id=1
                 </a>
               </span>
             </div>
@@ -312,13 +335,13 @@
                 <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
                 <line x1="12" y1="18" x2="12.01" y2="18"/>
               </svg>
-              Consumer Smartphone Scan Preview
+              Mobile Camera Scan Simulation
             </div>
           </div>
 
           <div class="simulation-box">
             <div class="simulation-text">
-              See exactly what pops up on an iPhone / Android camera when pointing at the 5mm pill QR code.
+              Test what a phone camera sees when scanning the 5mm code.
             </div>
             <button type="button" class="btn btn-primary" id="btnSimulateScan" style="width: 100%;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -345,15 +368,57 @@
 
     </section>
 
-    <!-- Complete Pharmaceutical Database Table -->
+    <!-- Web 1: Add New Medication to Database (Collapsible) -->
+    <section style="margin-bottom: 2.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <button type="button" class="btn btn-secondary" id="toggleAddPillBtn" style="border-style: dashed;">
+          + Add New Pill Record (Web 1 Data Management)
+        </button>
+      </div>
+
+      <div id="addPillSection" style="display: none; background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-cyan);">
+          Add New Medication Record (Auto-assigns Primary Key)
+        </h3>
+        <form id="newPillForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Pill Name *</label>
+            <input type="text" id="newPillName" placeholder="e.g. Cetirizine" required style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 6px; color: #fff;">
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Dosage</label>
+            <input type="text" id="newPillDosage" placeholder="e.g. 10 mg" value="10 mg" style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 6px; color: #fff;">
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Indication</label>
+            <input type="text" id="newPillIndication" placeholder="e.g. Relieves allergy symptoms" value="Relieves allergy symptoms" style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 6px; color: #fff;">
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Manufacture Date *</label>
+            <input type="date" id="newPillMfg" value="2026-03-01" required style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 6px; color: #fff;">
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Expiry Date *</label>
+            <input type="date" id="newPillExp" value="2028-03-01" required style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 6px; color: #fff;">
+          </div>
+          <div style="display: flex; align-items: flex-end;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Save & Generate 5mm QR
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Complete Pharmaceutical Database Table with Primary Keys -->
     <section class="database-section">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
-          <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff;">Integrated Pharmaceutical Database</h2>
-          <p style="color: var(--text-muted); font-size: 0.88rem;">Live central repository queried by the on-dose 5mm micro-QR codes</p>
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff;">Live Database Records (Web 1 Central Storage)</h2>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">Each record has a unique Primary Key (pk) linked directly to Web 2</p>
         </div>
         <a href="database.json" target="_blank" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 14px;">
-          View Raw database.json
+          View database.json
         </a>
       </div>
 
@@ -361,18 +426,19 @@
         <table class="pharma-table">
           <thead>
             <tr>
+              <th>Primary Key</th>
               <th>Pill Name & Dosage</th>
               <th>Prescribed Indication</th>
               <th>Mfg Date</th>
               <th>Exp Date</th>
               <th>Batch / Lot No.</th>
-              <th>License Authority</th>
-              <th>Form & 5mm Placement</th>
-              <th>Database Action</th>
+              <th>5mm Placement</th>
+              <th>Web 2 Direct Link</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><span class="status-badge status-verified" style="font-family: var(--font-mono);">PK #1</span></td>
               <td>
                 <div style="font-weight: 700; color: #fff;">Paracetamol 500mg</div>
                 <div style="font-size: 0.75rem; color: var(--text-muted);">Acetaminophen</div>
@@ -381,15 +447,15 @@
               <td>2026-02-15</td>
               <td>2028-02-15</td>
               <td><code>LOT-PRX-2026-081</code></td>
-              <td>MFG-FDA-IND-88210</td>
               <td>Oblong Caplet (Top Face 5mm)</td>
               <td>
-                <a href="verify.html?id=paracetamol" target="_blank" class="status-badge status-verified">
-                  Verify Portal ↗
+                <a href="verify.html?id=1" target="_blank" class="status-badge status-verified">
+                  verify.html?id=1 ↗
                 </a>
               </td>
             </tr>
             <tr>
+              <td><span class="status-badge status-verified" style="font-family: var(--font-mono);">PK #2</span></td>
               <td>
                 <div style="font-weight: 700; color: #fff;">Ibuprofen 400mg</div>
                 <div style="font-size: 0.75rem; color: var(--text-muted);">NSAID Compound</div>
@@ -398,15 +464,15 @@
               <td>2026-01-10</td>
               <td>2028-01-10</td>
               <td><code>LOT-IBU-2026-442</code></td>
-              <td>MFG-FDA-IND-54192</td>
               <td>Round Coated (Dome Face 5mm)</td>
               <td>
-                <a href="verify.html?id=ibuprofen" target="_blank" class="status-badge status-verified">
-                  Verify Portal ↗
+                <a href="verify.html?id=2" target="_blank" class="status-badge status-verified">
+                  verify.html?id=2 ↗
                 </a>
               </td>
             </tr>
             <tr>
+              <td><span class="status-badge status-verified" style="font-family: var(--font-mono);">PK #3</span></td>
               <td>
                 <div style="font-weight: 700; color: #fff;">Amoxicillin 500mg</div>
                 <div style="font-size: 0.75rem; color: var(--text-muted);">Penicillin Trihydrate</div>
@@ -415,11 +481,10 @@
               <td>2026-03-01</td>
               <td>2027-09-01</td>
               <td><code>LOT-AMX-2026-919</code></td>
-              <td>MFG-FDA-IND-31048</td>
               <td>Hard Capsule (Body Band 5mm)</td>
               <td>
-                <a href="verify.html?id=amoxicillin" target="_blank" class="status-badge status-verified">
-                  Verify Portal ↗
+                <a href="verify.html?id=3" target="_blank" class="status-badge status-verified">
+                  verify.html?id=3 ↗
                 </a>
               </td>
             </tr>
@@ -435,7 +500,6 @@
     <div class="modal-content">
       <button type="button" class="modal-close" id="modalClose">&times;</button>
       
-      <!-- Phone Camera UI Header -->
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-glass);">
         <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(6,182,212,0.15); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -444,16 +508,16 @@
           </svg>
         </div>
         <div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Smartphone Camera Detected 5mm QR</div>
-          <div style="font-size: 0.75rem; color: var(--text-muted);">Optical Recognition Active</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Camera Optical Recognition (5mm QR)</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Primary Key Detected</div>
         </div>
       </div>
 
-      <!-- Smartphone Banner Preview (Simulating iOS/Android camera notification) -->
+      <!-- Smartphone Banner Preview -->
       <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid var(--accent-cyan); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);">
         <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-cyan); font-weight: 700; margin-bottom: 8px; display: flex; justify-content: space-between;">
           <span>📱 Scanned Data Card</span>
-          <span>5mm Code</span>
+          <span id="simPk" style="color: #10b981;">#1</span>
         </div>
         
         <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; margin-bottom: 1rem;">
@@ -471,18 +535,17 @@
           </div>
         </div>
 
-        <a href="verify.html?id=paracetamol" id="simRedirectBtn" target="_blank" class="btn btn-primary" style="width: 100%;">
-          Open Authenticated Database ↗
+        <a href="verify.html?id=1" id="simRedirectBtn" target="_blank" class="btn btn-primary" style="width: 100%;">
+          Open Web 2 Portal for Primary Key #1 ↗
         </a>
       </div>
 
       <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-        When a consumer scans the physical 5mm pill, the phone camera reads the immediate text (Pill, Mfg, Exp) and displays the instant clickable redirect button to the database.
+        The phone camera reads the compact text (Name, Mfg, Exp) and presents a direct link to the exact primary key record on Web 2.
       </p>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="pill-renderer.js"></script>
   <script src="app.js"></script>
 </body>

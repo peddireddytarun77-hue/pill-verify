@@ -1,11 +1,13 @@
 {
   "project": "PharmaVerify On-Dose 5x5mm Pill Authentication Database",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "githubOwner": "peddireddytarun77-hue",
+  "repository": "pill-verify",
   "baseVerificationUrl": "https://peddireddytarun77-hue.github.io/pill-verify/verify.html",
   "localVerificationUrl": "http://localhost:3000/verify.html",
   "pills": [
     {
+      "pk": 1,
       "id": "paracetamol",
       "code": "PARA-500",
       "name": "Paracetamol",
@@ -38,6 +40,7 @@
       "storage": "Store below 25°C (77°F) in a dry place protected from moisture."
     },
     {
+      "pk": 2,
       "id": "ibuprofen",
       "code": "IBU-400",
       "name": "Ibuprofen",
@@ -70,6 +73,7 @@
       "storage": "Store between 20°C and 25°C (68°F to 77°F). Excursions permitted between 15°C and 30°C."
     },
     {
+      "pk": 3,
       "id": "amoxicillin",
       "code": "AMX-500",
       "name": "Amoxicillin",
